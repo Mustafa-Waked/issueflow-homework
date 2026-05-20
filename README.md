@@ -4,6 +4,8 @@
 
 # IssueFlow – Ticket Management Backend Platform
 
+> **How to run this project (install, database, build, tests, Swagger):** see **[run.md](run.md)**.
+
 ## Overview
 IssueFlow is a backend service designed to handle a lightweight project and issue tracking platform.
 The system manages users, projects, tickets (issues), comments on tickets, audit logs, ticket dependencies, attachments, and bulk ticket import/export.
@@ -155,38 +157,14 @@ Tickets and projects support **soft delete** only — deleted records are hidden
 
 ---
 
-## Jump Start
-For your convenience, `compose.yml` includes a PostgreSQL DB and the app is already configured to connect to it.
+## Setup, build, and run
 
-Document your exact setup, build, and run steps in `run.md` (install dependencies, start the database, build the project, run the application, and run the tests).
+All step-by-step instructions (prerequisites, Docker PostgreSQL, `mvnw` build, `spring-boot:run`, tests, seeded users, Swagger, troubleshooting) are in **[run.md](run.md)**.
 
-## Description
+Quick links after the app is running:
 
-[Spring Boot](https://spring.io/projects/spring-boot) Java starter project. Supports **Java 21** or **Java 25** with **Spring Boot 3** or **Spring Boot 4**.
-
-## Build
-
-```bash
-# using Maven wrapper
-$ ./mvnw clean package
-```
-
-## Running the app
-
-```bash
-# run with Maven
-$ ./mvnw spring-boot:run
-
-# run the packaged jar
-$ java -jar target/issueflow-*.jar
-```
-
-## Test
-
-```bash
-# run all tests (Maven)
-$ ./mvnw test
-```
+- Swagger UI: http://localhost:8080/swagger-ui/index.html  
+- OpenAPI JSON: http://localhost:8080/v3/api-docs  
 
 ## AI & Agents
 
@@ -201,7 +179,7 @@ Add the main and relevant prompts that show your interaction with the agents in 
 - Core requirements implemented: soft delete/restore endpoints, mentions parsing in comments, CSV ticket import/export, optimistic locking to HTTP 409, ticket status transition validation, DONE immutability restrictions, dependency blocking before DONE, auto-assignment for unassigned tickets, workload endpoint, overdue priority escalation scheduler, audit logging for mutations, and attachment validation.
 - Attachments: upload and delete only (README contract); list/download not required by README.
 - Audit logs: `performedBy` (user id), `actor` (`USER`|`SYSTEM`), `oldValue`, `newValue`; optional `page`/`pageSize` query params.
-- See `run.md` for setup and run commands.
+- Full run guide: **[run.md](run.md)**
 
 ---
 
